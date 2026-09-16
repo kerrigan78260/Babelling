@@ -3,6 +3,17 @@
     "name": "MandarinVoice",
     "slug": "MandarinVoice",
     "version": "1.0.0",
+    "plugins": [
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "MandarinVoice a besoin du microphone pour reconnaître votre voix.",
+          "androidSpeechServicePackages": [
+            "com.google.android.googlequicksearchbox"
+          ]
+        }
+      ]
+    ],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -13,7 +24,11 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSSpeechRecognitionUsageDescription": "Allow $(PRODUCT_NAME) to use speech recognition.",
+        "NSMicrophoneUsageDescription": "Allow $(PRODUCT_NAME) to use the microphone."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -21,7 +36,11 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "RECORD_AUDIO"
+      ],
+      "package": "com.anonymous.MandarinVoice"
     },
     "web": {
       "favicon": "./assets/favicon.png"
